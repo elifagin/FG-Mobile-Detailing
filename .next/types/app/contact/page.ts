@@ -1,4 +1,4 @@
-// File: /Users/akibhabad/my-react-app/app/contact/page.tsx
+// File: /Users/akibhabad/Downloads/Projects/Coding Projects/the-Detail-lab/app/contact/page.tsx
 import * as entry from '../../../../app/contact/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
