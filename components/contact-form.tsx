@@ -7,7 +7,6 @@ import { Textarea } from '@/components/ui/textarea'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { CheckCircle, AlertCircle } from 'lucide-react'
 import { contact } from '@/data/services'
-import { SemesterFormWarning, useSemesterNotice } from '@/components/semester-notice'
 
 // Connecticut towns for autocomplete
 const ctTowns = [
@@ -51,7 +50,6 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errors, setErrors] = useState<Partial<FormData>>({})
-  const { isAcknowledged, openModal } = useSemesterNotice()
 
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {}
@@ -106,12 +104,6 @@ export default function ContactForm() {
     e.preventDefault()
 
     if (!validateForm()) return
-
-    // Block submission if semester notice hasn't been acknowledged
-    if (!isAcknowledged) {
-      openModal()
-      return
-    }
 
     setIsSubmitting(true)
     setSubmitStatus('idle')
@@ -263,8 +255,6 @@ export default function ContactForm() {
               placeholder="Tell us about your vehicle and what services you're interested in..."
             />
           </div>
-
-          <SemesterFormWarning />
 
           <Button
             type="submit"

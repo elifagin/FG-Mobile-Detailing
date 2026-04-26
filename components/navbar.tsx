@@ -6,12 +6,10 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useSemesterNotice } from '@/components/semester-notice'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { isBannerVisible } = useSemesterNotice()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +23,7 @@ export default function Navbar() {
 
   return (
     <nav className={cn(
-      "fixed w-full z-50 transition-all duration-300",
-      isBannerVisible ? "top-10" : "top-0",
+      "fixed top-0 w-full z-50 transition-all duration-300",
       scrolled
         ? "bg-black/90 backdrop-blur-md shadow-lg"
         : "bg-black/60 backdrop-blur-sm"

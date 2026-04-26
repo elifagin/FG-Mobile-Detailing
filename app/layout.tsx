@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter, Sora } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/navbar'
-import SemesterNotice from '@/components/semester-notice'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -104,12 +103,10 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <SemesterNotice>
-          <Navbar />
-          <main>
-            {children}
-          </main>
-        </SemesterNotice>
+        <Navbar />
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   )
